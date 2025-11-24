@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "migrate": "tsx src/database/migrate.ts",
     "ingest": "tsx src/pipeline/ingest.ts",
-    "query": "tsx src/examples/queries.ts",
+    "query": "node --loader ts-node/esm src/examples/queries.ts",
     "fetch-papers": "tsx scripts/fetch-papers.ts",
     "download-pdfs": "tsx scripts/download-pdfs.ts",
     "parse-pdfs": "tsx scripts/parse-pdfs.ts",
@@ -34,6 +34,7 @@
     "@types/node": "^20.19.25",
     "@types/pdf-parse": "^1.1.4",
     "tsx": "^4.15.4",
+    "ts-node": "^10.9.2",
     "typedoc": "^0.28.14",
     "typescript": "^5.4.5"
   },

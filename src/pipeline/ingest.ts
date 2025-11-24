@@ -16,7 +16,7 @@ import { IngestionPipeline } from './ingestion-pipeline.js';
 // PAPER SOURCE CONFIGURATION
 // ============================================================================
 // Change this variable to switch between paper sources
-type PaperSource = 'sample' | 'fetched' | 'full';
+type PaperSource = 'fetched' | 'full';
 const ACTIVE_PAPER_SOURCE: PaperSource = 'full'; // Options: 'sample', 'fetched', 'full'
 
 /**
@@ -145,16 +145,14 @@ async function runIngestion() {
   console.log(`Found ${papers.length} papers to ingest.`);
 
   // Provide context about the selected paper source
-  if (ACTIVE_PAPER_SOURCE === 'sample') {
-    console.log('Using sample papers. For full corpus, see PAPER_ACQUISITION.md');
-  } else if (ACTIVE_PAPER_SOURCE === 'fetched') {
+  if (ACTIVE_PAPER_SOURCE === 'fetched') {
     console.log('Using abstracts only. For full text, run: npm run download-pdfs && npm run parse-pdfs');
   } else {
     console.log('Using full papers with complete text. This will produce the richest knowledge graph.');
   }
 
   // Determine batch size based on source
-  const batchSize = ACTIVE_PAPER_SOURCE === 'sample' ? 2 : 5;
+  const batchSize = ACTIVE_PAPER_SOURCE === 'full' ? 2 : 5;
 
   try {
     await pipeline.ingestPapers(papers, batchSize);
