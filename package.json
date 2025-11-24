@@ -1,0 +1,45 @@
+{
+  "name": "research-knowledge-graph",
+  "version": "1.0.0",
+  "description": "Agentic system for constructing academic paper knowledge graphs",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "migrate": "tsx src/database/migrate.ts",
+    "ingest": "tsx src/pipeline/ingest.ts",
+    "query": "tsx src/examples/queries.ts",
+    "fetch-papers": "tsx scripts/fetch-papers.ts",
+    "download-pdfs": "tsx scripts/download-pdfs.ts",
+    "parse-pdfs": "tsx scripts/parse-pdfs.ts",
+    "convert-papers": "tsx scripts/convert-to-sample-papers.ts",
+    "clean-pdfs": "tsx scripts/clean-invalid-pdfs.ts",
+    "seed:demo": "tsx scripts/seed-demo-graph.ts",
+    "api": "tsx src/api/server.ts",
+    "ui": "npx serve public -p 3000"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "dotenv": "^16.4.5",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "openai": "^4.52.0",
+    "pdf-parse": "^1.1.1",
+    "postgres": "^3.4.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.25",
+    "@types/pdf-parse": "^1.1.4",
+    "tsx": "^4.15.4",
+    "typedoc": "^0.28.14",
+    "typescript": "^5.4.5"
+  },
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  }
+}

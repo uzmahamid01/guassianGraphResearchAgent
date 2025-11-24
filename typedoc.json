@@ -1,0 +1,8 @@
+{
+  "entryPoints": ["src/index.ts", "src/**/*.ts"],
+  "out": "docs",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true
+}
